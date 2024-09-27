@@ -1,2 +1,2 @@
-# Bot-o
+# Botão
 Botão interativo
