@@ -4,9 +4,13 @@
     --pink: #D08791;
 }
 
-.anima:hover {
-    background-color: white;
-    transform: translate(0px, 5px);
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0; /* Fundo suave */
 }
 
 .baby-yoda {
@@ -16,76 +20,62 @@
     background: var(--green);
     position: relative;
     cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
 
     background-image: 
-        radial-gradient(
-            circle at 1.5em,
-            #fff, 
-            #fff .25em,
-            transparent .3em
-        ),
-        radial-gradient(
-            circle at 1em,
-            #000,
-            #000 .9em,
-            transparent 1em
-        );
+        radial-gradient(circle at 1.5em, #fff, #fff .25em, transparent .3em),
+        radial-gradient(circle at 1em, #000, #000 .9em, transparent 1em);
 
     background-position: 0.6em 0.35em, 0.7em 0.6em;
     background-size: 2.75em 2em;
     background-repeat: repeat-x;
 
     animation: eyes 2s cubic-bezier(.8, .02, .2, .96) infinite;
+}
 
-    @keyframes eyes {
-        to {
-            background-size: 2.75em 1.5em;
-        }
+@keyframes eyes {
+    0%, 100% {
+        background-size: 2.75em 2em;
     }
-
-    &::before, &::after {
-        content: '';
-        display: block;
-        width: 5em;
-        height: 1.5em;
-        background: var(--pink);
-        border-top: solid .5em var(--green);
-        position: absolute;
-        top: 0.7em; /* Adjust the top positioning to connect with the head */
-        margin: 0 -1em;
-        z-index: -1;
-        border-radius: 2em 1em;
-
-        transform: rotate(0deg);
-        transform-origin: top;
-
-        transition: transform 0.5s ease-in-out;
-    }
-
-    &::before {
-        right: 100%;
-        border-bottom-left-radius: 9em 4em;
-    }
-
-    &::after {
-        left: 100%;
-        border-bottom-right-radius: 9em 4em;
-    }
-
-    &:hover::before {
-        transform: rotate(-20deg); /* Ears rotate upwards */
-    }
-
-    &:hover::after {
-        transform: rotate(20deg); /* Ears rotate upwards */
+    50% {
+        background-size: 2.75em 1.5em;
     }
 }
 
-html {
-    height: 100%;
-    display: flex;
+.baby-yoda::before, .baby-yoda::after {
+    content: '';
+    display: block;
+    width: 5em;
+    height: 1.5em;
+    background: var(--pink);
+    border-top: solid .5em var(--green);
+    position: absolute;
+    top: 0.7em;
+    margin: 0 -1em;
+    z-index: -1;
+    border-radius: 2em 1em;
+    transition: transform 0.3s ease-in-out;
 }
 
-body {
-    margin: auto;
+.baby-yoda::before {
+    right: 100%;
+    border-bottom-left-radius: 9em 4em;
+}
+
+.baby-yoda::after {
+    left: 100%;
+    border-bottom-right-radius: 9em 4em;
+}
+
+.baby-yoda:hover {
+    background-color: white;
+    transform: translate(0, 5px);
+}
+
+.baby-yoda:hover::before {
+    transform: rotate(-20deg);
+}
+
+.baby-yoda:hover::after {
+    transform: rotate(20deg);
 }
