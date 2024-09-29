@@ -68,7 +68,7 @@ html, body {
 }
 
 .baby-yoda:hover {
-    background-color: white;
+    background-color: var(--green);
     transform: translate(0, 5px);
 }
 
@@ -79,3 +79,4 @@ html, body {
 .baby-yoda:hover::after {
     transform: rotate(20deg);
 }
+
